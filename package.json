@@ -1,11 +1,17 @@
 {
   "name": "stack-project",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A maze solver.",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dist/main.js",
+    "build": "babel --watch src --out-dir dist --source-maps",
+    "test": "mocha --compilers js:babel-core/register -w"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "jrob",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  }
 }
