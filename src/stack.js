@@ -1,35 +1,40 @@
 import Node from './node'
 
-class Stack {
+export default class Stack {
   constructor() {
-    this.root = null;
+    this.top = null
   }
 
   push( entry ) {
-    if( ! isEmpty() ) {
-      this.root = new Node( entry, this.root );
-    }
+    // @Moniarchy
+    // const node = new Node( entry )
+    // node.next = this.top
+    // this.top = node
+
+    this.top = new Node( entry, this.top )
   }
 
   pop() {
-    temp = this.root
+    if( ! this.isEmpty() ) {
+      const temp = this.top
 
-    if( this.root != null ) {
-      this.root = this.root.next;
+      this.top = this.top.next
+
+      return temp.data
+    } else {
+      return null
     }
-
-    return temp
   }
 
   peek() {
-    if( ! isEmpty() ) {
-      return root.data;
+    if( ! this.isEmpty() ) {
+      return this.top.data
     } else {
-      return null;
+      return null
     }
   }
 
   isEmpty() {
-    return this.root == null;
+    return this.top == null
   }
 }
